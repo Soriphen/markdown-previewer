@@ -1,0 +1,136 @@
+@use "./variablesMixins" as vMix;
+
+.App {
+  text-align: center;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: vMix.$mischka;
+
+  
+  #App-header {
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+
+    #title-box { 
+      #title {
+        font-family: 'Rajdhani', sans-serif;
+        font-size: calc(70px + 2vmin);
+        color: vMix.$thunder;
+      }
+    }
+
+    #input-output {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      @include vMix.media('<=tablet') {
+        flex-direction: column;
+      }
+
+      #output-box {
+        width: 45%;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        border-radius: 20px;
+        overflow:hidden;
+        @include vMix.media('<=tablet') {
+          width: auto;
+          margin-top: 50px;
+        }
+
+        #output-title {
+          font-family: 'Rajdhani', sans-serif;
+          color: vMix.$thunder;
+          font-size: calc(30px + 2vmin);
+        }
+  
+        #preview {
+          text-align: left;
+          color: vMix.$thunder;
+          height: 700px;
+          padding: 15px;
+          overflow-y: scroll;
+          @include vMix.media('<=tablet') {
+            height: 500px;
+          }
+
+          blockquote {  
+            border-left: 3px solid vMix.$thunder;
+            padding-left: 5px;
+            margin-left: 25px;
+          }
+
+          img {
+            display: block;
+            max-width: 80%;
+            margin: 2rem auto;
+          }
+
+          table,
+          thead,
+          tbody,
+          tr,
+          td,
+          th {
+            border: 1px solid rgb(0, 0, 0);
+          }
+    
+          table {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            
+            &:hover {
+              box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            }
+          }
+    
+          pre {
+            background-color: vMix.$thunder;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+            border: 1px solid vMix.$thunder;
+            border-radius: 5px;
+    
+            &:hover {
+              box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+            }
+    
+            code {
+              background-color: vMix.$thunder;
+              color: vMix.$mischka;
+              font-size: 12px;
+              font-weight: bold;
+            }
+          }
+        }
+      }
+
+      #input-box {
+        width: 45%;
+        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+        border-radius: 20px;
+        overflow: hidden;
+        @include vMix.media('<=tablet') {
+          width: auto;
+        }
+
+        #input-title {
+          font-size: calc(30px + 2vmin);
+          font-family: 'Rajdhani', sans-serif;
+        }
+
+
+        #editor {
+          background-color: vMix.$mischka;
+          color: vMix.$thunder;
+          line-height: 15px;
+
+          .ace_gutter {
+            background-color: vMix.$mischka;
+          }
+        }
+      }
+    }
+  }
+}
+
